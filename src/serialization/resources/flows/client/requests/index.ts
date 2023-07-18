@@ -1,0 +1,1 @@
+export { IntentRequest } from "./IntentRequest";
