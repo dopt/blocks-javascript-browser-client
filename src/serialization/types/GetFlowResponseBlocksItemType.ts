@@ -9,8 +9,8 @@ import * as core from "../../core";
 export const GetFlowResponseBlocksItemType: core.serialization.Schema<
     serializers.GetFlowResponseBlocksItemType.Raw,
     DoptApi.GetFlowResponseBlocksItemType
-> = core.serialization.enum_(["custom", "modal", "checklist", "checklistItem", "tour", "tourItem"]);
+> = core.serialization.enum_(["custom", "card", "modal", "checklist", "checklistItem", "tour", "tourItem"]);
 
 export declare namespace GetFlowResponseBlocksItemType {
-    type Raw = "custom" | "modal" | "checklist" | "checklistItem" | "tour" | "tourItem";
+    type Raw = "custom" | "card" | "modal" | "checklist" | "checklistItem" | "tour" | "tourItem";
 }
