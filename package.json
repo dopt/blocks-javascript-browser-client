@@ -1,6 +1,6 @@
 {
     "name": "",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "private": false,
     "repository": "https://github.com/dopt/blocks-javascript-browser-client",
     "main": "./index.js",
