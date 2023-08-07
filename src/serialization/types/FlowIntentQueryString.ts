@@ -13,6 +13,7 @@ export const FlowIntentQueryString: core.serialization.ObjectSchema<
     version: core.serialization.number(),
     userIdentifier: core.serialization.string(),
     groupIdentifier: core.serialization.string().optional(),
+    force: core.serialization.boolean().optional(),
 });
 
 export declare namespace FlowIntentQueryString {
@@ -20,5 +21,6 @@ export declare namespace FlowIntentQueryString {
         version: number;
         userIdentifier: string;
         groupIdentifier?: string | null;
+        force?: boolean | null;
     }
 }

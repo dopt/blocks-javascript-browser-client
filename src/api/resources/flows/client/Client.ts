@@ -49,7 +49,7 @@ export class Flows {
                 "X-Api-Key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.0.10",
+                "X-Fern-SDK-Version": "1.0.12",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -108,12 +108,16 @@ export class Flows {
         intent: DoptApi.IntentRequestIntent,
         request: DoptApi.IntentRequest
     ): Promise<void> {
-        const { version, userIdentifier, groupIdentifier, ..._body } = request;
+        const { version, userIdentifier, groupIdentifier, force, ..._body } = request;
         const _queryParams = new URLSearchParams();
         _queryParams.append("version", version.toString());
         _queryParams.append("userIdentifier", userIdentifier);
         if (groupIdentifier != null) {
             _queryParams.append("groupIdentifier", groupIdentifier);
+        }
+
+        if (force != null) {
+            _queryParams.append("force", force.toString());
         }
 
         const _response = await core.fetcher({
@@ -126,7 +130,7 @@ export class Flows {
                 "X-Api-Key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.0.10",
+                "X-Fern-SDK-Version": "1.0.12",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

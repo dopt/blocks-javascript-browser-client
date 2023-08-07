@@ -6,4 +6,5 @@ export interface IntentRequest {
     version: number;
     userIdentifier: string;
     groupIdentifier?: string;
+    force?: boolean;
 }

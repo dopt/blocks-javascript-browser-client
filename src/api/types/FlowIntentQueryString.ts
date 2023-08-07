@@ -6,4 +6,5 @@ export interface FlowIntentQueryString {
     version: number;
     userIdentifier: string;
     groupIdentifier?: string;
+    force?: boolean;
 }
