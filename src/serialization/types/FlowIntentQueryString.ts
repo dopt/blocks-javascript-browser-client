@@ -10,7 +10,8 @@ export const FlowIntentQueryString: core.serialization.ObjectSchema<
     serializers.FlowIntentQueryString.Raw,
     DoptApi.FlowIntentQueryString
 > = core.serialization.object({
-    version: core.serialization.number(),
+    version: core.serialization.number().optional(),
+    tag: core.serialization.lazy(async () => (await import("..")).FlowIntentQueryStringTag).optional(),
     userIdentifier: core.serialization.string(),
     groupIdentifier: core.serialization.string().optional(),
     force: core.serialization.boolean().optional(),
@@ -18,7 +19,8 @@ export const FlowIntentQueryString: core.serialization.ObjectSchema<
 
 export declare namespace FlowIntentQueryString {
     interface Raw {
-        version: number;
+        version?: number | null;
+        tag?: serializers.FlowIntentQueryStringTag.Raw | null;
         userIdentifier: string;
         groupIdentifier?: string | null;
         force?: boolean | null;

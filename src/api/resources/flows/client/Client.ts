@@ -27,9 +27,16 @@ export class Flows {
      * @throws {@link DoptApi.InternalServerError}
      */
     public async getFlow(sid: string, request: DoptApi.GetFlowRequest): Promise<DoptApi.GetFlowResponse> {
-        const { version, include, userIdentifier, groupIdentifier } = request;
+        const { version, tag, include, userIdentifier, groupIdentifier } = request;
         const _queryParams = new URLSearchParams();
-        _queryParams.append("version", version.toString());
+        if (version != null) {
+            _queryParams.append("version", version.toString());
+        }
+
+        if (tag != null) {
+            _queryParams.append("tag", tag);
+        }
+
         if (include != null) {
             _queryParams.append("include", include);
         }
@@ -49,7 +56,7 @@ export class Flows {
                 "X-Api-Key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.0.12",
+                "X-Fern-SDK-Version": "1.0.13",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -108,9 +115,16 @@ export class Flows {
         intent: DoptApi.IntentRequestIntent,
         request: DoptApi.IntentRequest
     ): Promise<void> {
-        const { version, userIdentifier, groupIdentifier, force, ..._body } = request;
+        const { version, tag, userIdentifier, groupIdentifier, force, ..._body } = request;
         const _queryParams = new URLSearchParams();
-        _queryParams.append("version", version.toString());
+        if (version != null) {
+            _queryParams.append("version", version.toString());
+        }
+
+        if (tag != null) {
+            _queryParams.append("tag", tag);
+        }
+
         _queryParams.append("userIdentifier", userIdentifier);
         if (groupIdentifier != null) {
             _queryParams.append("groupIdentifier", groupIdentifier);
@@ -130,7 +144,7 @@ export class Flows {
                 "X-Api-Key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.0.12",
+                "X-Fern-SDK-Version": "1.0.13",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

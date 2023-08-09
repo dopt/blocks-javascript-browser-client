@@ -8,7 +8,7 @@ import * as core from "../../../../../core";
 
 export const IntentRequest: core.serialization.Schema<
     serializers.IntentRequest.Raw,
-    Omit<DoptApi.IntentRequest, "version" | "userIdentifier" | "groupIdentifier" | "force">
+    Omit<DoptApi.IntentRequest, "version" | "tag" | "userIdentifier" | "groupIdentifier" | "force">
 > = core.serialization.object({});
 
 export declare namespace IntentRequest {
