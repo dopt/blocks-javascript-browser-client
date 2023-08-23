@@ -14,7 +14,6 @@ export * from "./GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFie
 export * from "./IntentRequestIntent";
 export * from "./IntentRequestTag";
 export * from "./BadRequestErrorResponseBody";
-export * from "./BadRequestErrorResponseBodyCode";
 export * from "./BlockTransitionQueryString";
 export * from "./BlockTransitionRequestBody";
 export * from "./BlockTransitionRequestParams";
