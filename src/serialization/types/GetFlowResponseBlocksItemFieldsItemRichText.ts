@@ -6,21 +6,19 @@ import * as serializers from "..";
 import * as DoptApi from "../../api";
 import * as core from "../../core";
 
-export const GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem: core.serialization.ObjectSchema<
-    serializers.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem.Raw,
-    DoptApi.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
+export const GetFlowResponseBlocksItemFieldsItemRichText: core.serialization.ObjectSchema<
+    serializers.GetFlowResponseBlocksItemFieldsItemRichText.Raw,
+    DoptApi.GetFlowResponseBlocksItemFieldsItemRichText
 > = core.serialization.object({
     sid: core.serialization.string(),
-    type: core.serialization.stringLiteral("richText"),
     value: core.serialization
         .list(core.serialization.record(core.serialization.string(), core.serialization.unknown()))
         .optional(),
 });
 
-export declare namespace GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem {
+export declare namespace GetFlowResponseBlocksItemFieldsItemRichText {
     interface Raw {
         sid: string;
-        type: "richText";
         value?: Record<string, unknown>[] | null;
     }
 }

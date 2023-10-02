@@ -9,25 +9,38 @@ import * as core from "../../core";
 export const GetBlockResponseFieldsItem: core.serialization.Schema<
     serializers.GetBlockResponseFieldsItem.Raw,
     DoptApi.GetBlockResponseFieldsItem
-> = core.serialization.undiscriminatedUnion([
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetBlockResponseFieldsItemGetBlockResponseFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetBlockResponseFieldsItemGetBlockResponseFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetBlockResponseFieldsItemGetBlockResponseFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetBlockResponseFieldsItemGetBlockResponseFieldsItem
-    ),
-]);
+> = core.serialization
+    .union("type", {
+        string: core.serialization.lazyObject(async () => (await import("..")).GetBlockResponseFieldsItemString),
+        number: core.serialization.lazyObject(async () => (await import("..")).GetBlockResponseFieldsItemNumber),
+        boolean: core.serialization.lazyObject(async () => (await import("..")).GetBlockResponseFieldsItemBoolean),
+        richText: core.serialization.lazyObject(async () => (await import("..")).GetBlockResponseFieldsItemRichText),
+    })
+    .transform<DoptApi.GetBlockResponseFieldsItem>({
+        transform: (value) => value,
+        untransform: (value) => value,
+    });
 
 export declare namespace GetBlockResponseFieldsItem {
     type Raw =
-        | serializers.GetBlockResponseFieldsItemGetBlockResponseFieldsItem.Raw
-        | serializers.GetBlockResponseFieldsItemGetBlockResponseFieldsItem.Raw
-        | serializers.GetBlockResponseFieldsItemGetBlockResponseFieldsItem.Raw
-        | serializers.GetBlockResponseFieldsItemGetBlockResponseFieldsItem.Raw;
+        | GetBlockResponseFieldsItem.String
+        | GetBlockResponseFieldsItem.Number
+        | GetBlockResponseFieldsItem.Boolean
+        | GetBlockResponseFieldsItem.RichText;
+
+    interface String extends serializers.GetBlockResponseFieldsItemString.Raw {
+        type: "string";
+    }
+
+    interface Number extends serializers.GetBlockResponseFieldsItemNumber.Raw {
+        type: "number";
+    }
+
+    interface Boolean extends serializers.GetBlockResponseFieldsItemBoolean.Raw {
+        type: "boolean";
+    }
+
+    interface RichText extends serializers.GetBlockResponseFieldsItemRichText.Raw {
+        type: "richText";
+    }
 }

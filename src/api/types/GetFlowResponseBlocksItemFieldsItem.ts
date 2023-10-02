@@ -5,7 +5,25 @@
 import * as DoptApi from "..";
 
 export type GetFlowResponseBlocksItemFieldsItem =
-    | DoptApi.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    | DoptApi.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    | DoptApi.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    | DoptApi.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem;
+    | DoptApi.GetFlowResponseBlocksItemFieldsItem.String
+    | DoptApi.GetFlowResponseBlocksItemFieldsItem.Number
+    | DoptApi.GetFlowResponseBlocksItemFieldsItem.Boolean
+    | DoptApi.GetFlowResponseBlocksItemFieldsItem.RichText;
+
+export declare namespace GetFlowResponseBlocksItemFieldsItem {
+    interface String extends DoptApi.GetFlowResponseBlocksItemFieldsItemString {
+        type: "string";
+    }
+
+    interface Number extends DoptApi.GetFlowResponseBlocksItemFieldsItemNumber {
+        type: "number";
+    }
+
+    interface Boolean extends DoptApi.GetFlowResponseBlocksItemFieldsItemBoolean {
+        type: "boolean";
+    }
+
+    interface RichText extends DoptApi.GetFlowResponseBlocksItemFieldsItemRichText {
+        type: "richText";
+    }
+}

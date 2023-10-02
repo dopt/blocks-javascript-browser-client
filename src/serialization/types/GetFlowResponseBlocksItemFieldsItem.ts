@@ -9,25 +9,46 @@ import * as core from "../../core";
 export const GetFlowResponseBlocksItemFieldsItem: core.serialization.Schema<
     serializers.GetFlowResponseBlocksItemFieldsItem.Raw,
     DoptApi.GetFlowResponseBlocksItemFieldsItem
-> = core.serialization.undiscriminatedUnion([
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    ),
-    core.serialization.lazyObject(
-        async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem
-    ),
-]);
+> = core.serialization
+    .union("type", {
+        string: core.serialization.lazyObject(
+            async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemString
+        ),
+        number: core.serialization.lazyObject(
+            async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemNumber
+        ),
+        boolean: core.serialization.lazyObject(
+            async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemBoolean
+        ),
+        richText: core.serialization.lazyObject(
+            async () => (await import("..")).GetFlowResponseBlocksItemFieldsItemRichText
+        ),
+    })
+    .transform<DoptApi.GetFlowResponseBlocksItemFieldsItem>({
+        transform: (value) => value,
+        untransform: (value) => value,
+    });
 
 export declare namespace GetFlowResponseBlocksItemFieldsItem {
     type Raw =
-        | serializers.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem.Raw
-        | serializers.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem.Raw
-        | serializers.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem.Raw
-        | serializers.GetFlowResponseBlocksItemFieldsItemGetFlowResponseBlocksItemFieldsItem.Raw;
+        | GetFlowResponseBlocksItemFieldsItem.String
+        | GetFlowResponseBlocksItemFieldsItem.Number
+        | GetFlowResponseBlocksItemFieldsItem.Boolean
+        | GetFlowResponseBlocksItemFieldsItem.RichText;
+
+    interface String extends serializers.GetFlowResponseBlocksItemFieldsItemString.Raw {
+        type: "string";
+    }
+
+    interface Number extends serializers.GetFlowResponseBlocksItemFieldsItemNumber.Raw {
+        type: "number";
+    }
+
+    interface Boolean extends serializers.GetFlowResponseBlocksItemFieldsItemBoolean.Raw {
+        type: "boolean";
+    }
+
+    interface RichText extends serializers.GetFlowResponseBlocksItemFieldsItemRichText.Raw {
+        type: "richText";
+    }
 }
