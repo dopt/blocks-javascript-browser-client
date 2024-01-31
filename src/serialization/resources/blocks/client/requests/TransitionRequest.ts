@@ -8,7 +8,7 @@ import * as core from "../../../../../core";
 
 export const TransitionRequest: core.serialization.Schema<
     serializers.TransitionRequest.Raw,
-    Omit<DoptApi.TransitionRequest, "transitions" | "version" | "userIdentifier" | "groupIdentifier">
+    Omit<DoptApi.TransitionRequest, "transitions" | "userIdentifier" | "groupIdentifier" | "version">
 > = core.serialization.object({});
 
 export declare namespace TransitionRequest {

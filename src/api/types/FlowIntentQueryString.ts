@@ -5,9 +5,9 @@
 import * as DoptApi from "..";
 
 export interface FlowIntentQueryString {
-    version?: number;
-    tag?: DoptApi.FlowIntentQueryStringTag;
     userIdentifier: string;
     groupIdentifier?: string;
+    version?: number;
+    tag?: DoptApi.FlowIntentQueryStringTag;
     force?: boolean;
 }

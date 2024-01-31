@@ -4,7 +4,7 @@
 
 export interface TransitionRequest {
     transitions?: string | string[];
-    version: number;
     userIdentifier: string;
     groupIdentifier?: string;
+    version: number;
 }

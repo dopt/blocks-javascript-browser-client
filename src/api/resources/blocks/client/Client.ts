@@ -27,10 +27,14 @@ export class Blocks {
      * @throws {@link DoptApi.InternalServerError}
      */
     public async getBlock(uid: string, request: DoptApi.GetBlockRequest): Promise<DoptApi.GetBlockResponse> {
-        const { version, userIdentifier } = request;
+        const { userIdentifier, groupIdentifier, version } = request;
         const _queryParams = new URLSearchParams();
-        _queryParams.append("version", version.toString());
         _queryParams.append("userIdentifier", userIdentifier);
+        if (groupIdentifier != null) {
+            _queryParams.append("groupIdentifier", groupIdentifier);
+        }
+
+        _queryParams.append("version", version.toString());
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this.options.environment)) ?? environments.DoptApiEnvironment.Default,
@@ -41,7 +45,7 @@ export class Blocks {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.4",
+                "X-Fern-SDK-Version": "1.1.5",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -96,7 +100,7 @@ export class Blocks {
      * @throws {@link DoptApi.InternalServerError}
      */
     public async transition(uid: string, request: DoptApi.TransitionRequest): Promise<void> {
-        const { transitions, version, userIdentifier, groupIdentifier, ..._body } = request;
+        const { transitions, userIdentifier, groupIdentifier, version, ..._body } = request;
         const _queryParams = new URLSearchParams();
         if (transitions != null) {
             if (Array.isArray(transitions)) {
@@ -108,12 +112,12 @@ export class Blocks {
             }
         }
 
-        _queryParams.append("version", version.toString());
         _queryParams.append("userIdentifier", userIdentifier);
         if (groupIdentifier != null) {
             _queryParams.append("groupIdentifier", groupIdentifier);
         }
 
+        _queryParams.append("version", version.toString());
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this.options.environment)) ?? environments.DoptApiEnvironment.Default,
@@ -124,7 +128,7 @@ export class Blocks {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.4",
+                "X-Fern-SDK-Version": "1.1.5",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

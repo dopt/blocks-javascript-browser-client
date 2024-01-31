@@ -27,8 +27,13 @@ export class Flows {
      * @throws {@link DoptApi.InternalServerError}
      */
     public async getFlow(sid: string, request: DoptApi.GetFlowRequest): Promise<DoptApi.GetFlowResponse> {
-        const { version, tag, include, userIdentifier, groupIdentifier } = request;
+        const { userIdentifier, groupIdentifier, version, tag, include } = request;
         const _queryParams = new URLSearchParams();
+        _queryParams.append("userIdentifier", userIdentifier);
+        if (groupIdentifier != null) {
+            _queryParams.append("groupIdentifier", groupIdentifier);
+        }
+
         if (version != null) {
             _queryParams.append("version", version.toString());
         }
@@ -41,11 +46,6 @@ export class Flows {
             _queryParams.append("include", include);
         }
 
-        _queryParams.append("userIdentifier", userIdentifier);
-        if (groupIdentifier != null) {
-            _queryParams.append("groupIdentifier", groupIdentifier);
-        }
-
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this.options.environment)) ?? environments.DoptApiEnvironment.Default,
@@ -56,7 +56,7 @@ export class Flows {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.4",
+                "X-Fern-SDK-Version": "1.1.5",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -115,19 +115,19 @@ export class Flows {
         intent: DoptApi.IntentRequestIntent,
         request: DoptApi.IntentRequest
     ): Promise<void> {
-        const { version, tag, userIdentifier, groupIdentifier, force, ..._body } = request;
+        const { userIdentifier, groupIdentifier, version, tag, force, ..._body } = request;
         const _queryParams = new URLSearchParams();
+        _queryParams.append("userIdentifier", userIdentifier);
+        if (groupIdentifier != null) {
+            _queryParams.append("groupIdentifier", groupIdentifier);
+        }
+
         if (version != null) {
             _queryParams.append("version", version.toString());
         }
 
         if (tag != null) {
             _queryParams.append("tag", tag);
-        }
-
-        _queryParams.append("userIdentifier", userIdentifier);
-        if (groupIdentifier != null) {
-            _queryParams.append("groupIdentifier", groupIdentifier);
         }
 
         if (force != null) {
@@ -144,7 +144,7 @@ export class Flows {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.4",
+                "X-Fern-SDK-Version": "1.1.5",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

@@ -5,9 +5,9 @@
 import * as DoptApi from "../../../..";
 
 export interface IntentRequest {
-    version?: number;
-    tag?: DoptApi.IntentRequestTag;
     userIdentifier: string;
     groupIdentifier?: string;
+    version?: number;
+    tag?: DoptApi.IntentRequestTag;
     force?: boolean;
 }

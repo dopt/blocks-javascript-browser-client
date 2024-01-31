@@ -10,19 +10,19 @@ export const GetFlowQueryString: core.serialization.ObjectSchema<
     serializers.GetFlowQueryString.Raw,
     DoptApi.GetFlowQueryString
 > = core.serialization.object({
+    userIdentifier: core.serialization.string(),
+    groupIdentifier: core.serialization.string().optional(),
     version: core.serialization.number().optional(),
     tag: core.serialization.lazy(async () => (await import("..")).GetFlowQueryStringTag).optional(),
     include: core.serialization.stringLiteral("block").optional(),
-    userIdentifier: core.serialization.string(),
-    groupIdentifier: core.serialization.string().optional(),
 });
 
 export declare namespace GetFlowQueryString {
     interface Raw {
+        userIdentifier: string;
+        groupIdentifier?: string | null;
         version?: number | null;
         tag?: serializers.GetFlowQueryStringTag.Raw | null;
         include?: "block" | null;
-        userIdentifier: string;
-        groupIdentifier?: string | null;
     }
 }

@@ -8,6 +8,8 @@ export type GetFlowResponseBlocksItemType =
     | "modal"
     | "checklist"
     | "checklistItem"
+    | "hints"
+    | "hintsItem"
     | "tour"
     | "tourItem";
 
@@ -17,6 +19,8 @@ export const GetFlowResponseBlocksItemType = {
     Modal: "modal",
     Checklist: "checklist",
     ChecklistItem: "checklistItem",
+    Hints: "hints",
+    HintsItem: "hintsItem",
     Tour: "tour",
     TourItem: "tourItem",
 } as const;

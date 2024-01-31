@@ -38,3 +38,4 @@ export * from "./InternalServerErrorResponseBody";
 export * from "./NotFoundErrorResponseBody";
 export * from "./TimeoutErrorResponseBody";
 export * from "./UnauthorizedErrorResponseBody";
+export * from "./UserIdentifierParams";

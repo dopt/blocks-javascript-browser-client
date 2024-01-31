@@ -4,7 +4,7 @@
 
 export interface BlockTransitionQueryString {
     transitions: string[];
-    version: number;
     userIdentifier: string;
     groupIdentifier?: string;
+    version: number;
 }

@@ -6,19 +6,17 @@ import * as serializers from "..";
 import * as DoptApi from "../../api";
 import * as core from "../../core";
 
-export const GetBlockQueryString: core.serialization.ObjectSchema<
-    serializers.GetBlockQueryString.Raw,
-    DoptApi.GetBlockQueryString
+export const UserIdentifierParams: core.serialization.ObjectSchema<
+    serializers.UserIdentifierParams.Raw,
+    DoptApi.UserIdentifierParams
 > = core.serialization.object({
     userIdentifier: core.serialization.string(),
     groupIdentifier: core.serialization.string().optional(),
-    version: core.serialization.number(),
 });
 
-export declare namespace GetBlockQueryString {
+export declare namespace UserIdentifierParams {
     interface Raw {
         userIdentifier: string;
         groupIdentifier?: string | null;
-        version: number;
     }
 }

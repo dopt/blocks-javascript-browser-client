@@ -3,6 +3,7 @@
  */
 
 export interface GetBlockRequest {
-    version: number;
     userIdentifier: string;
+    groupIdentifier?: string;
+    version: number;
 }

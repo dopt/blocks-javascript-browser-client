@@ -5,9 +5,9 @@
 import * as DoptApi from "..";
 
 export interface GetFlowQueryString {
+    userIdentifier: string;
+    groupIdentifier?: string;
     version?: number;
     tag?: DoptApi.GetFlowQueryStringTag;
     include?: "block";
-    userIdentifier: string;
-    groupIdentifier?: string;
 }

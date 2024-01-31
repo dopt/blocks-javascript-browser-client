@@ -11,16 +11,16 @@ export const BlockTransitionQueryString: core.serialization.ObjectSchema<
     DoptApi.BlockTransitionQueryString
 > = core.serialization.object({
     transitions: core.serialization.list(core.serialization.string()),
-    version: core.serialization.number(),
     userIdentifier: core.serialization.string(),
     groupIdentifier: core.serialization.string().optional(),
+    version: core.serialization.number(),
 });
 
 export declare namespace BlockTransitionQueryString {
     interface Raw {
         transitions: string[];
-        version: number;
         userIdentifier: string;
         groupIdentifier?: string | null;
+        version: number;
     }
 }
