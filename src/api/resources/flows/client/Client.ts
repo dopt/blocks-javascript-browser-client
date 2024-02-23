@@ -56,7 +56,7 @@ export class Flows {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.5",
+                "X-Fern-SDK-Version": "1.1.6",
             },
             contentType: "application/json",
             queryParameters: _queryParams,
@@ -111,7 +111,7 @@ export class Flows {
      * @throws {@link DoptApi.InternalServerError}
      */
     public async intent(
-        uid: string,
+        sid: string,
         intent: DoptApi.IntentRequestIntent,
         request: DoptApi.IntentRequest
     ): Promise<void> {
@@ -137,14 +137,14 @@ export class Flows {
         const _response = await core.fetcher({
             url: urlJoin(
                 (await core.Supplier.get(this.options.environment)) ?? environments.DoptApiEnvironment.Default,
-                `v2/flow/${uid}/${await serializers.IntentRequestIntent.jsonOrThrow(intent)}`
+                `v2/flow/${sid}/${await serializers.IntentRequestIntent.jsonOrThrow(intent)}`
             ),
             method: "POST",
             headers: {
                 "x-api-key": await core.Supplier.get(this.options.apiKey),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "",
-                "X-Fern-SDK-Version": "1.1.5",
+                "X-Fern-SDK-Version": "1.1.6",
             },
             contentType: "application/json",
             queryParameters: _queryParams,

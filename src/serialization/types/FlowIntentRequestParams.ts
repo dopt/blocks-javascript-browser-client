@@ -10,13 +10,13 @@ export const FlowIntentRequestParams: core.serialization.ObjectSchema<
     serializers.FlowIntentRequestParams.Raw,
     DoptApi.FlowIntentRequestParams
 > = core.serialization.object({
-    uid: core.serialization.string(),
+    sid: core.serialization.string(),
     intent: core.serialization.lazy(async () => (await import("..")).FlowIntentRequestParamsIntent),
 });
 
 export declare namespace FlowIntentRequestParams {
     interface Raw {
-        uid: string;
+        sid: string;
         intent: serializers.FlowIntentRequestParamsIntent.Raw;
     }
 }

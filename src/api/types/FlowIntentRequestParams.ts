@@ -5,6 +5,6 @@
 import * as DoptApi from "..";
 
 export interface FlowIntentRequestParams {
-    uid: string;
+    sid: string;
     intent: DoptApi.FlowIntentRequestParamsIntent;
 }
